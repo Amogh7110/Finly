@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Finly-Expense Tracker Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="app">
+
+    <!-- HERO + Selectors -->
+    <div class="header">
+        <div class="hero">
+            <h2>Welcome To Finly 👋</h2>
+            <p>Manage your finances easily</p>
+        </div>
+        <div class="selectors">
+            <select id="monthSelector"></select>
+            <select id="yearSelector"></select>
+        </div>
+    </div>
+
+    <!-- Total Balance Card -->
+    <div class="balance-card">
+        <p>Total Savings (All Time)</p>
+        <h1 id="balance">₹0</h1>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="summary">
+        <div class="card income-card">
+            <p>Income</p>
+            <h3 id="income">₹0</h3>
+        </div>
+        <div class="card expense-card">
+            <p>Expense</p>
+            <h3 id="expense">₹0</h3>
+        </div>
+        <div class="card saving-card">
+            <p>Monthly Savings</p>
+            <h3 id="saving">₹0</h3>
+        </div>
+        <div class="card lent-card">
+            <p>Pending Lent</p>
+            <h3 id="pendingLent">₹0</h3>
+        </div>
+        <div class="card borrowed-card">
+            <p>Pending Borrowed</p>
+            <h3 id="pendingBorrowed">₹0</h3>
+        </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="charts">
+        <div class="chart-box">
+            <canvas id="monthlyChart"></canvas>
+        </div>
+        <div class="chart-box">
+            <canvas id="categoryChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Download Buttons -->
+    <button class="download-btn" onclick="downloadMonthlyCSV()">Download Monthly Report</button>
+    <button class="download-btn" onclick="downloadYearlyCSV()">Download Yearly Report</button>
+
+    <!-- Transaction List -->
+    <ul id="list"></ul>
+
+    <!-- Add Transaction -->
+    <div class="add-transaction">
+        <input type="text" id="text" placeholder="Description">
+        <input type="number" id="amount" placeholder="Amount">
+        <select id="category">
+            <option>Food</option>
+            <option>Travel</option>
+            <option>Shopping</option>
+            <option>Bills</option>
+            <option>Entertainment</option>
+            <option>Personal</option>
+            <option>Other</option>
+        </select>
+        <select id="type">
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+            <option value="lent">Lent / Pending</option>
+            <option value="borrowed">Borrowed / Pending</option>
+        </select>
+        <button class="add" onclick="addTransaction()">Add Transaction</button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
